@@ -1,5 +1,7 @@
 package com.example.ex01.Controller;
 
+import com.example.ex01.Entity.Book;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -62,21 +64,13 @@ public class UserController {
         return map;
     }
 
-    @Value("${book.name}")
-    private String properties_name;
-    @Value("${book.author}")
-    private String properties_author;
-    @Value("${book.isbn}")
-    private int properties_isbn;
+    @Autowired
+    Book book;
 
     @GetMapping("/getPropertiesVariable")
     @ResponseBody
     public Object getPropertiesVariable(){
-        Map<String, Object> map = new HashMap<>();
-        map.put("properties_name", properties_name);
-        map.put("properties_author", properties_author);
-        map.put("properties_isbn", properties_isbn);
-        return map;
+        return book;
     }
 
 }
