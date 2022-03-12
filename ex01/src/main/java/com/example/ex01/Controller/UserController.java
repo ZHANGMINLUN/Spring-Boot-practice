@@ -41,12 +41,23 @@ public class UserController {
     @PostMapping("/postInfo")
     @ResponseBody
     public Object getVariableByPOST(@RequestParam("name") String name,
-                           @RequestParam("author") String author,
-                           @RequestParam("isbn") int isbn) {
+                                    @RequestParam("author") String author,
+                                    @RequestParam("isbn") int isbn) {
         Map<String, Object> map = new HashMap<>();
-        map.put("name",name);
+        map.put("name", name);
         map.put("author", author);
         map.put("isbn", isbn);
+        return map;
+    }
+
+    @GetMapping("/getVariabl")
+    @ResponseBody
+    //http://localhost:8080/api/getVariabl?page=5&size=big
+    public Object getVariableWithoutUrl(@RequestParam("page") long page,
+                                        @RequestParam(value = "size",defaultValue = "yeah") String size) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("page", page);
+        map.put("size", size);
         return map;
     }
 
