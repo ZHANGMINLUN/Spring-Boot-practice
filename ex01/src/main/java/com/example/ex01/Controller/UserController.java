@@ -38,4 +38,16 @@ public class UserController {
         return map;
     }
 
+    @PostMapping("/postInfo")
+    @ResponseBody
+    public Object getVariableByPOST(@RequestParam("name") String name,
+                           @RequestParam("author") String author,
+                           @RequestParam("isbn") int isbn) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name",name);
+        map.put("author", author);
+        map.put("isbn", isbn);
+        return map;
+    }
+
 }
