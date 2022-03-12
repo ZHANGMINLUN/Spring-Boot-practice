@@ -1,5 +1,6 @@
 package com.example.ex01.Controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,12 +53,29 @@ public class UserController {
 
     @GetMapping("/getVariabl")
     @ResponseBody
-    //http://localhost:8080/api/getVariabl?page=5&size=big
+    //http://localhost:8080/api/getVariabl?page=5
     public Object getVariableWithoutUrl(@RequestParam("page") long page,
                                         @RequestParam(value = "size",defaultValue = "yeah") String size) {
         Map<String, Object> map = new HashMap<>();
         map.put("page", page);
         map.put("size", size);
+        return map;
+    }
+
+    @Value("${book.name}")
+    private String properties_name;
+    @Value("${book.author}")
+    private String properties_author;
+    @Value("${book.isbn}")
+    private int properties_isbn;
+
+    @GetMapping("/getPropertiesVariable")
+    @ResponseBody
+    public Object getPropertiesVariable(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("properties_name", properties_name);
+        map.put("properties_author", properties_author);
+        map.put("properties_isbn", properties_isbn);
         return map;
     }
 
