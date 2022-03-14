@@ -60,4 +60,15 @@ public class BookService {
     public List<Book>findByAuthor(String author){
         return bookRepository.findByAuthor(author);
     }
+
+    /**
+     * Get data by 2 Conditions in Repository
+     * @param author
+     * @param name
+     * @return
+     */
+    public List<Book>findBy2Condition(String author,String name){
+        return bookRepository.findByAuthorAndName(author, name);
+    }
+
 }

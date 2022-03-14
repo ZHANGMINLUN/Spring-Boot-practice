@@ -53,13 +53,19 @@ public class BookSQLController {
     }
 
     @DeleteMapping("/deleteById/{id}")
-    public void deleteList(@PathVariable long id){
+    public void deleteList(@PathVariable long id) {
         bookService.deleteList(id);
     }
 
     @PostMapping("/findByAuthor")
-    public List<Book> getByAuthor(@RequestParam String author){
+    public List<Book> getByAuthor(@RequestParam String author) {
         return bookService.findByAuthor(author);
+    }
+
+    @PostMapping("/findBy2Condition")
+    public List<Book> getBy2Condition(@RequestParam String author,
+                                      @RequestParam String name) {
+        return bookService.findBy2Condition(author, name);
     }
 
 }
