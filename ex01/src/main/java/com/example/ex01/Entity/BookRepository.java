@@ -15,4 +15,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByAuthorAndName(String author, String name);
 
     List<Book> findByDescriptionEndsWith(String des);
+
+    List<Book> findByDescriptionContains(String des);
 }

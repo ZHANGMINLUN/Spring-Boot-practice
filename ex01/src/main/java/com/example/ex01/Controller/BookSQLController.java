@@ -73,4 +73,9 @@ public class BookSQLController {
         return bookService.findByEndsWith(description);
     }
 
+    @PostMapping("/findByContains")
+    public List<Book>getByContains(String description){
+        return bookService.findByContain(description);
+    }
+
 }

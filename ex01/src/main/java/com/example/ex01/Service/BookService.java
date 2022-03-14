@@ -75,4 +75,8 @@ public class BookService {
         return bookRepository.findByDescriptionEndsWith(des);
     }
 
+    public List<Book>findByContain(String des){
+        return bookRepository.findByDescriptionContains(des);
+    }
+
 }
