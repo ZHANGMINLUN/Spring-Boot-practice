@@ -78,4 +78,9 @@ public class BookSQLController {
         return bookService.findByContain(description);
     }
 
+    @PostMapping("/findByJPQL")
+    public List<Book>getByJPQL(int len){
+        return bookService.findByJPQL(len);
+    }
+
 }
