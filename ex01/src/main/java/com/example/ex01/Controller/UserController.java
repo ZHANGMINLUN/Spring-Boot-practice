@@ -64,13 +64,13 @@ public class UserController {
         return map;
     }
 
-    @Autowired
-    Book book;
+//    @Autowired
+//    Book book;
 
     @GetMapping("/getPropertiesVariable")
     @ResponseBody
     public Object getPropertiesVariable(){
-        return book;
+        return null/*book*/;
     }
 
 }
