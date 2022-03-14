@@ -7,5 +7,5 @@ import javax.persistence.Id;
 
 //SQL method in JpaRepository
 public interface BookRepository extends JpaRepository<Book, Long> {
-
+    Book findById(long id);
 }

@@ -34,4 +34,9 @@ public class BookSQLController {
         return bookService.addList(book);
     }
 
+    @GetMapping("/getIdFromUrl/{id}")
+    public Book getIdByUrl(@PathVariable long id){
+        return bookService.getId(id);
+    }
+
 }
