@@ -21,4 +21,13 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    /**
+     * Add Book by "save" method
+     * @param book
+     * @return
+     */
+    public Book addList(Book book){
+        return bookRepository.save(book);
+    }
+
 }

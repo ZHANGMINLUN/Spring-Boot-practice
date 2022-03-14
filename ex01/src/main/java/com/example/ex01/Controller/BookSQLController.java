@@ -3,9 +3,7 @@ package com.example.ex01.Controller;
 import com.example.ex01.Entity.Book;
 import com.example.ex01.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,21 @@ public class BookSQLController {
     @GetMapping("/getBooks")
     public List<Book> getList() {
         return bookService.findAll();
+    }
+
+    @PostMapping("/setBooks")
+    public Book setListbyPOST(@RequestParam String name,
+                              @RequestParam String author,
+                              @RequestParam String description,
+                              @RequestParam int status) {
+
+        Book book = new Book();
+        book.setName(name);
+        book.setAuthor(author);
+        book.setDescription(description);
+        book.setStatus(status);
+
+        return bookService.addList(book);
     }
 
 }
