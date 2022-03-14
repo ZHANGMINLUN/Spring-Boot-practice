@@ -98,4 +98,8 @@ public class BookService {
         return bookRepository.updateByJPQL(status, id);
     }
 
+    @Transactional
+    public int deleteByJPQL(int id){
+        return bookRepository.deleteByJPQL(id);
+    }
 }

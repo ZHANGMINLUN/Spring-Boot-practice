@@ -88,4 +88,9 @@ public class BookSQLController {
         return bookService.updateByJPQL(status, id);
     }
 
+    @PostMapping("/deleteByCondition")
+    public int deleteByCondition(@RequestParam int id){
+        return bookService.deleteByJPQL(id);
+    }
+
 }
