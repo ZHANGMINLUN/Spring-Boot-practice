@@ -68,4 +68,9 @@ public class BookSQLController {
         return bookService.findBy2Condition(author, name);
     }
 
+    @PostMapping("/findByEndsWith")
+    public List<Book>getByEndsWith(@RequestParam String description){
+        return bookService.findByEndsWith(description);
+    }
+
 }

@@ -71,4 +71,8 @@ public class BookService {
         return bookRepository.findByAuthorAndName(author, name);
     }
 
+    public List<Book>findByEndsWith(String des){
+        return bookRepository.findByDescriptionEndsWith(des);
+    }
+
 }
