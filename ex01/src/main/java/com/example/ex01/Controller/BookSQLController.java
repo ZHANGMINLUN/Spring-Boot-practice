@@ -93,4 +93,9 @@ public class BookSQLController {
         return bookService.deleteByJPQL(id);
     }
 
+    @PostMapping("/deleteAndUpdate")
+    public int deleteAndUpdate(int id,int status,int uid){
+        return bookService.deleteAndUpdate(id, status, uid);
+    }
+
 }

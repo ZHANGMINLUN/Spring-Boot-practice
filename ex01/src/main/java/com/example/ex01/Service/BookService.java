@@ -94,6 +94,7 @@ public class BookService {
      * @param id
      * @return
      */
+    @Transactional
     public int updateByJPQL(int status, long id) {
         return bookRepository.updateByJPQL(status, id);
     }
@@ -101,5 +102,12 @@ public class BookService {
     @Transactional
     public int deleteByJPQL(int id){
         return bookRepository.deleteByJPQL(id);
+    }
+
+    @Transactional
+    public int deleteAndUpdate(int id,int status,int uid){
+        int deleteId = deleteByJPQL(id);
+        int updateId = updateByJPQL(status, uid);
+        return deleteId + updateId;
     }
 }
