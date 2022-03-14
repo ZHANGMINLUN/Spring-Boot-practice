@@ -42,4 +42,14 @@ public class BookService {
         return bookRepository.findById(id);
     }
 
+    /**
+     * delete data by delete
+     * @delete(id) defined in Repository first
+     * @param id
+     * @return
+     */
+    public void deleteList(long id){
+        bookRepository.deleteById(id);
+    }
+
 }

@@ -55,4 +55,9 @@ public class BookSQLController {
         return bookService.addList(book);
     }
 
+    @DeleteMapping("/deleteById/{id}")
+    public void deleteList(@PathVariable long id){
+        bookService.deleteList(id);
+    }
+
 }
