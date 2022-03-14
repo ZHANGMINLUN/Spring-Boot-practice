@@ -20,16 +20,13 @@ public class BookSQLController {
     }
 
     @PostMapping("/setBooks")
-    public Book setListbyPOST(@RequestParam String name,
-                              @RequestParam String author,
-                              @RequestParam String description,
-                              @RequestParam int status) {
+    public Book setListbyPOST(Book book) {
 
-        Book book = new Book();
-        book.setName(name);
-        book.setAuthor(author);
-        book.setDescription(description);
-        book.setStatus(status);
+//        Book book = new Book();
+//        book.setName(name);
+//        book.setAuthor(author);
+//        book.setDescription(description);
+//        book.setStatus(status);
 
         return bookService.addList(book);
     }
