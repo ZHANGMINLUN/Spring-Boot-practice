@@ -69,18 +69,23 @@ public class BookSQLController {
     }
 
     @PostMapping("/findByEndsWith")
-    public List<Book>getByEndsWith(@RequestParam String description){
+    public List<Book> getByEndsWith(@RequestParam String description) {
         return bookService.findByEndsWith(description);
     }
 
     @PostMapping("/findByContains")
-    public List<Book>getByContains(String description){
+    public List<Book> getByContains(String description) {
         return bookService.findByContain(description);
     }
 
     @PostMapping("/findByJPQL")
-    public List<Book>getByJPQL(int len){
+    public List<Book> getByJPQL(int len) {
         return bookService.findByJPQL(len);
+    }
+
+    @PostMapping("/updateByCondition")
+    public int updateByCondition(@RequestParam int status, @RequestParam long id) {
+        return bookService.updateByJPQL(status, id);
     }
 
 }
