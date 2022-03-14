@@ -57,4 +57,9 @@ public class BookSQLController {
         bookService.deleteList(id);
     }
 
+    @PostMapping("/findByAuthor")
+    public List<Book> getByAuthor(@RequestParam String author){
+        return bookService.findByAuthor(author);
+    }
+
 }

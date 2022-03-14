@@ -52,4 +52,12 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
+    /**
+     * Get data by Repository method
+     * @param author
+     * @return
+     */
+    public List<Book>findByAuthor(String author){
+        return bookRepository.findByAuthor(author);
+    }
 }
