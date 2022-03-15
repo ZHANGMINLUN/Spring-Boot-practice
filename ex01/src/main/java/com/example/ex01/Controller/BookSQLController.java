@@ -90,18 +90,18 @@ public class BookSQLController {
     }
 
     @PostMapping("/deleteByCondition")
-    public int deleteByCondition(@RequestParam int id){
+    public int deleteByCondition(@RequestParam int id) {
         return bookService.deleteByJPQL(id);
     }
 
     @PostMapping("/deleteAndUpdate")
-    public int deleteAndUpdate(int id,int status,int uid){
+    public int deleteAndUpdate(int id, int status, int uid) {
         return bookService.deleteAndUpdate(id, status, uid);
     }
 
     @GetMapping("/getPageOfList")
-    public Page<Book>getPageOfList(){
-        return bookService.findAllByPage();
+    public Page<Book> getPageOfList(@RequestParam int page, @RequestParam int size) {
+        return bookService.findAllByPage(page, size);
     }
 
 }
