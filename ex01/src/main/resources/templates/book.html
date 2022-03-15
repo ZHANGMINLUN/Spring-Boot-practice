@@ -21,15 +21,24 @@
         <p>
           <strong>Status: </strong><span th:text="*{status}">0</span>
         </p>
-        <p>
+        <p th:switch="*{status}">
           <strong>Status: </strong>
-          <span th:switch="*{status}">
             <span th:case="0">to be read</span>
             <span th:case="1">reading</span>
             <span th:case="2">had been read</span>
-          </span>
+
+          <div class="alert alert-success" th:if="*{status==2}">
+            <strong>good</strong>
+          </div>
+          <div class="alert alert-warning" th:unless="*{status==2}">
+            <strong>go reading!</strong>
+          </div>
+
         </p>
       </div>
+
+
+
 
       <div class="btn-group" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-primary">Left</button>
