@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <title>Book's HTML</title>
-</head>
-<body>
-<h1>This is book's h1</h1>
-<h2>This is book's h2</h2>
-</body>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+  </head>
+  <body>
+    <div>
+      <p>
+        <stron>Bookname: </stron><span th:text="${book.name}">Our</span>
+      </p>
+      <p>
+        <stron>Author: </stron><span th:text="${book.author}">Yang</span>
+      </p>
+      <p>
+        <stron>Description: </stron><span th:text="${book.description}">Good</span>
+      </p>
+      <p>
+        <stron>Status: </stron><span th:text="${book.status}">0</span>
+      </p>
+    </div>
+  </body>
 </html>
