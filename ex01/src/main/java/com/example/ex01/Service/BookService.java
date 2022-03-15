@@ -3,6 +3,10 @@ package com.example.ex01.Service;
 import com.example.ex01.Entity.Book;
 import com.example.ex01.Entity.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -90,6 +94,7 @@ public class BookService {
 
     /**
      * Update by Condition
+     *
      * @param status
      * @param id
      * @return
@@ -100,14 +105,21 @@ public class BookService {
     }
 
     @Transactional
-    public int deleteByJPQL(int id){
+    public int deleteByJPQL(int id) {
         return bookRepository.deleteByJPQL(id);
     }
 
     @Transactional
-    public int deleteAndUpdate(int id,int status,int uid){
+    public int deleteAndUpdate(int id, int status, int uid) {
         int deleteId = deleteByJPQL(id);
         int updateId = updateByJPQL(status, uid);
         return deleteId + updateId;
     }
+
+
+    public Page<Book> findAllByPage() {
+        PageRequest page = PageRequest.of(1, 5,Sort.by("id").descending());
+        return bookRepository.findAll(page);
+    }
+
 }

@@ -3,6 +3,7 @@ package com.example.ex01.Controller;
 import com.example.ex01.Entity.Book;
 import com.example.ex01.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -96,6 +97,11 @@ public class BookSQLController {
     @PostMapping("/deleteAndUpdate")
     public int deleteAndUpdate(int id,int status,int uid){
         return bookService.deleteAndUpdate(id, status, uid);
+    }
+
+    @GetMapping("/getPageOfList")
+    public Page<Book>getPageOfList(){
+        return bookService.findAllByPage();
     }
 
 }
