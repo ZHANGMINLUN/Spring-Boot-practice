@@ -15,10 +15,11 @@
       <thead>
       <tr>
         <th>#</th>
-        <th>Bookname: </th>
-        <th>Author: </th>
-        <th>Description: </th>
-        <th>Status: </th>
+        <th>Bookname</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Operation</th>
       </tr>
       </thead>
 
@@ -41,6 +42,9 @@
           <span th:case="1">ing</span>
           <span th:case="2">Yes</span>
           <span th:case="*">No</span>
+        </td>
+        <td>
+          <a href="" th:href="@{/books/{id}/input(id=${book.id})}">Update</a>
         </td>
       </tr>
       </tbody>
