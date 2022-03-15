@@ -11,6 +11,7 @@
             <h2 class="page-header">All List</h2>
             <div class="well">
                 <form th:action="@{/books/input}" method="post" th:object="${book}">
+                    <input type="hidden" th:value="*{id}" name="id">
                     <div class="form-group">
                         <label for="nameId">Bookname</label>
                         <input type="text" name="name" id="nameId" th:field="*{name}" class="form-control" >

@@ -10,6 +10,12 @@
   <body>
   <div class="container">
     <h2 class="table table-bordered">Books List</h2>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" th:unless="${#strings.isEmpty(message)}">
+      <strong>Congratulation! </strong><span th:text="${message}"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <p class="text-right"><a th:href="@{/books/input}" class="btn btn-primary">Add</a></p>
     <table class="table table-bordered">
       <thead>

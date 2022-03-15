@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -32,19 +33,23 @@ public class ThymeleafController {
     }
 
     @GetMapping("/books/input")
-    public String input() {
+    public String input(Model model) {
+        model.addAttribute("book", new Book());
         return "input";
     }
 
     /**
      * submit a Book Information
-     *
+     * Avoid from model missing during POST--->redirect--->GET
      * @param book
      * @return
      */
     @PostMapping("/books/input")
-    public String postList(Book book) {
-        bookService.addList(book);
+    public String postList(Book book,final RedirectAttributes attributes) {
+        Book book1 = bookService.addList(book);
+        if(book1!=null){
+            attributes.addFlashAttribute("message", "《" + book1.getName() + "》 Success!!");
+        }
         return "redirect:/books";
     }
 
@@ -60,5 +65,7 @@ public class ThymeleafController {
         model.addAttribute("book", book);
         return "input";
     }
+
+
 
 }
