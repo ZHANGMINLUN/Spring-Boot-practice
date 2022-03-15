@@ -2,11 +2,13 @@ package com.example.ex01.Controller;
 
 import com.example.ex01.Entity.Book;
 import com.example.ex01.Service.BookService;
+import org.hibernate.collection.internal.PersistentIdentifierBag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -33,6 +35,17 @@ public class ThymeleafController {
     @GetMapping("/books/input")
     public String input(){
         return "input";
+    }
+
+    /**
+     * submit a Book Information
+     * @param book
+     * @return
+     */
+    @PostMapping("/books/input")
+    public String postList(Book book){
+        bookService.addList(book);
+        return "redirect:/books";
     }
 
 }
