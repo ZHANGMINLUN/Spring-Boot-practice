@@ -30,4 +30,9 @@ public class ThymeleafController {
         return "book";
     }
 
+    @GetMapping("/books/input")
+    public String input(){
+        return "input";
+    }
+
 }

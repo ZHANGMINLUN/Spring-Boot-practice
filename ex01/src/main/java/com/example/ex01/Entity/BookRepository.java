@@ -36,5 +36,4 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     int deleteByJPQL(int id);
 
 
-
 }
