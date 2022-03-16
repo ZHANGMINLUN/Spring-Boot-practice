@@ -53,17 +53,18 @@
         </td>
         <td>
           <a href="" th:href="@{/books/{id}/input(id=${book.id})}">Update</a>
+          <a href="" th:href="@{/books/{id}/delete(id=${book.id})}">Delete</a>
         </td>
       </tr>
       </tbody>
     </table>
     <nav aria-label="Page navigation example">
       <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#" th:href="@{/books(page=${pager.number}-1)}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#" th:href="@{/books(page=${pager.number}-1)}" th:unless="${pager.first}">Previous</a></li>
         <li class="page-item"><a class="page-link" href="#">1</a></li>
         <li class="page-item"><a class="page-link" href="#">2</a></li>
         <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#" th:href="@{/books(page=${pager.number}+1)}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="#" th:href="@{/books(page=${pager.number}+1)}" th:unless="${pager.last}">Next</a></li>
       </ul>
     </nav>
   </div>

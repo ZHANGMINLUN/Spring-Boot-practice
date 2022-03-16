@@ -99,9 +99,9 @@ public class BookSQLController {
         return bookService.deleteAndUpdate(id, status, uid);
     }
 
-    @GetMapping("/getPageOfList")
-    public Page<Book> getPageOfList(@RequestParam int page, @RequestParam int size) {
-        return bookService.findAllByPage(page, size);
-    }
+//    @GetMapping("/getPageOfList")
+//    public Page<Book> getPageOfList(@RequestParam int page, @RequestParam int size) {
+//        return bookService.findAllByPage(page, size);
+//    }
 
 }
