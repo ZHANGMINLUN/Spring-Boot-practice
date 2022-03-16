@@ -47,7 +47,7 @@ public class User {
         return phonenumber;
     }
 
-    public void setPhonenumber(int phone) {
+    public void setPhonenumber(int phonenumber) {
         this.phonenumber = phonenumber;
     }
 
