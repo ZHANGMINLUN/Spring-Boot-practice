@@ -29,7 +29,8 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public String POSTregister(User user){
+    public String POSTregister(UserForm userForm){
+        User user = userForm.convertToUser();
         userService.AddUserInformation(user);
         return "loginPage";
     }
