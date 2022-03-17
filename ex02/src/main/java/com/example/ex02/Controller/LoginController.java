@@ -5,6 +5,7 @@ import com.example.ex02.Form.UserForm;
 import com.example.ex02.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,8 @@ public class LoginController {
     private UserService userService;
 
     @GetMapping("/registerPage")
-    public String registerPage() {
+    public String registerPage(Model model) {
+        model.addAttribute("user", new User());
         return "registerPage";
     }
 
@@ -30,7 +32,8 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public String POSTregister(@Valid User user, BindingResult result) {
+    public String POSTregister(@Valid User user, BindingResult result, Model model) {
+
         if(!user.getPassword().equals(user.getConfirmPassword())){
             result.rejectValue("confirmPassword","Password must be the same","PasswordMismatch");
         }

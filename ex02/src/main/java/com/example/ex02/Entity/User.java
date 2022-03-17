@@ -1,6 +1,8 @@
 package com.example.ex02.Entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
@@ -23,14 +25,13 @@ public class User {
     @GeneratedValue
     private long id;
 
-    @NotNull
+    @NotBlank
     private String username;
 
-    @NotNull
     @Length(min = 6, message = "unless 6 number")
     private String password;
 
-//    @Pattern(regexp = PHONE_REG, message = "Please enter right number")
+    @Pattern(regexp = PHONE_REG, message = "Please enter right number")
     private String phonenumber;
 
     @Email
@@ -39,6 +40,8 @@ public class User {
     @Transient
     @NotBlank
     private String confirmPassword;
+
+
 
     @Override
     public String toString() {
